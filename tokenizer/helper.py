@@ -48,3 +48,10 @@ class Helper :
             line.replace("\t","TEST")
             print(line)
             print("----------")"""
+    
+    def is_number_float(self, s):
+        try:
+            float(s)
+            return True
+        except ValueError:
+            return False

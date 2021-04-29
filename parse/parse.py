@@ -20,6 +20,7 @@ class Parser:
             elif tokens[i]["type"] == constTokens.typeClass:
                 expression= factory.create(constParser.expressionClass, tokens, i)
                 i = i+1
+                
             elif tokens[i]["type"] == constTokens.typeNumber:
                 expression= factory.create(constParser.expressionDeclaration, tokens, i)
                 i = i+1

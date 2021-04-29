@@ -9,17 +9,28 @@ specialChars = {
     "closeParenthese": {"regRule": "/\)/g", "value":'"'},
 }
 
-symboleEqual            = "*equal*"
+symboleEqual            = "equal"
 symbolePoint            = "point"
 symboleVirgule          = "virgule"
 symboleQuotationMark    = "quotationMark"
 symboleOpenParenthese   = "openParenthese"
 symboleCloseParenthese  = "closeParenthese"
 
+symboleOpenCurlyBracket   = "openCurlyBracket"
+symboleCloseCurlyBracket  = "closeCurlyBracket"
+
+symboleOpenBracket   = "openBracket"
+symboleCloseBracket  = "closeBracket"
+
 typePrint ="System"
 typeClass = "class"
 typeMain = "main"
-typeNumber  = "int"
-typeWord    = "String"
+typeNumber  = "number"
+typeWord    = "word"
+typeName = "name"
+
+JavaType = ["String", "int"]
+
+typeVisibility = ["public", "private"]
 
 errorNoTokenFound = 'No Tokens Found.'

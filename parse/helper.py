@@ -41,7 +41,7 @@ class helper:
                 break
             else:
                 if(tokens[i].type==constTokens.typeWord):
-                    args.append({type:constParser.typeVariable, variableName:tokens[i].value})
+                    args.append({type:constParser.typeVariable, variableName:tokens[i]["value"]})
                 else:
                     if tokens[i].type==constTokens.typeNumber:
                         args.append(tokens[i])
@@ -55,6 +55,31 @@ class helper:
         
         return {args: args, end: end}
 
-
+    def searchBody(self, tokens, start):
+        if tokens[start]["type"] != constTokens.symboleOpenCurlyBracket:
+            raise constParser.errorMissingOpenBracket
+        findEnd = False
+        end = None
+        body = []
+        for i in range(0, len(tokens)):
+            if tokens[i]["type"]==constTokens.symboleCloseCurlyBracket:
+                findEnd= true
+                end=i
+                break
+            else:
+                if(tokens[i]["type"]==constTokens.typeWord):
+                    args.append({type:constParser.typeVariable, variableName:tokens[i]["value"]})
+                else:
+                    if tokens[i].type==constTokens.typeNumber:
+                        args.append(tokens[i])
+                    else :
+                        if tokens[i]["type"]==constTokens.symboleQuotationMark :
+                            temp = searchString(tokens, i)
+                            args.append(temp)
+                            i=temp.end
+        if not findEnd: 
+            raise constParser.errorMissingCloseParenthesis
+        
+        return {body: body, end: end}
 
 
