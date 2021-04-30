@@ -28,6 +28,7 @@ typeMain = "main"
 typeNumber  = "number"
 typeWord    = "word"
 typeName = "name"
+typeString = "String"
 
 JavaType = ["String", "int"]
 

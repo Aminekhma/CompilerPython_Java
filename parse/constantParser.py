@@ -1,10 +1,12 @@
 typeVariable= 'variable'
-typeString= 'string'
+typeString= 'String'
 
 expressionDeclaration= "variableDeclaration"
 expressionAffectation= "variableAffectation"
 expressionMethodCall= "objectMethodCall"
+expressionMain = "main"
 expressionClass= "class"
+typeMain = "main"
 
 declarationVariable = ["int","String"]
 

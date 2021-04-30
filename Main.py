@@ -8,6 +8,6 @@ import re
 with open('Test.java') as file:
     token = tokenizer.Token()
     tokens = token.tokenizer(file.read())
-    print(tokens)
+    #print(tokens)
     parsers = parse.Parser()
-    #print(parsers.readTokens(tokens))
+    print(parsers.readTokens(tokens))

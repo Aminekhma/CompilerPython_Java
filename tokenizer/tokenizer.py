@@ -26,7 +26,10 @@ class Token :
             
                 #si le token est une classe
                 if constantToken.typeClass in t:
-                    tokens.append({"type": constantToken.typeClass,"value":t})# faire ca dans parser.py
+                    tokens.append({"type": constantToken.typeClass,"value":t})
+                
+                if constantToken.typeMain in t:
+                    tokens.append({"type": constantToken.typeMain,"value":t})
 
                 else:
                     #si le token est un main
@@ -43,8 +46,11 @@ class Token :
                     if constantToken.typePrint == t:
                         res = {"type": constantToken.typePrint, "value": t}
 
-                    if t in constantToken.JavaType:
-                        res = {"type" : "JavaType", "value" : t}
+                    if t == "String":
+                        res = {"type" : constantToken.typeString, "value" : t}
+
+                    if t == "Int" or t == "int" :
+                        res = {"type" : constantToken.typeNumber, "value" : t}
         
                     if constantToken.symboleEqual == t:     
                             res = {"type": constantToken.symboleEqual, "value": t}

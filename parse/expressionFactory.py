@@ -6,6 +6,9 @@ sys.path.append('../tokenizer')
 def create(type,tokens,start):
     if type == consParser.expressionClass:
         return classCreation(tokens, start)
+    
+    if type == consParser.expressionMain:
+        return mainCreation(tokens, start)
 
     if type == consParser.expressionMethodCall:
         return objectMethodCall(tokens, start)
@@ -25,25 +28,31 @@ def objectMethodCall(tokens,start):
     return {type:consParser.expressionMethodCall, objectName:objectName,methodName:methodName,arguments:arguments.args,end:arguments.end}
 
 def variableDeclaration(tokens, start):
-    #if tokens[start+1]["type"] != consTokens.typeWord: #cas erreur 
+    print(tokens[start])
+    #if tokens[start+1]["type"] != consTokens.typeWord and tokens[start+1]["type"] != consTokens.typeNumber:  
     #    print(tokens[start+1]["type"])
     #    return consParser.errorMissingWord
     variableName = tokens[start+1]["value"]
+ 
     return {type : consParser.expressionDeclaration, "variableName": variableName}
 
 def variableAffectation(tokens, start):
-    #if tokens[start-1]["type"] != consTokens.typeWord: #cas erreur
+    #if tokens[start-1]["type"] != consTokens.typeWord:
     #    return consParser.errorMissingWord
     #if tokens[start+1]["type"]==consTokens.typeNumber:
     #    variableValue = tokens[start+1]
     #else:
-    #    if tokens[start+1]["type"]==consTokens.symboleQuotationMark:
-    #        variableValue= helper.searchString(tokens, start+1)
-    return {type: consParser.expressionAffectation, "variableName": tokens[start-2]["value"], "variableValue": tokens[start+1]["value"]}
+     #   if tokens[start+1]["type"]==consTokens.symboleQuotationMark:
+      #      variableValue= helper.searchString(tokens, start+1)
+    return {type: consParser.expressionAffectation, "variableName": tokens[start-1]["value"], "variableValue": tokens[start+1]["value"]}
 
 
 def classCreation(tokens, start):
     return {"type": consParser.expressionClass, "className": tokens[start+1]["value"], "classType": tokens[start-1]["value"] , "bodyclass" : [] }
+
+def mainCreation(tokens, start):
+    return {"type": consParser.expressionMain, "mainType": tokens[start-3]["value"], "typeStatic": tokens[start-2]["value"] , "typeMain": tokens[start-1]["value"] ,"bodyMain" : [] }
+
 
 
 
