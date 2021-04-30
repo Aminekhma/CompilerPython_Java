@@ -25,16 +25,15 @@ def objectMethodCall(tokens,start):
         return "error"
     methodName = tokens[start+2]["value"]
     arguments=helper.searchArgs(tokens,start+3)
-    return {type:consParser.expressionMethodCall, objectName:objectName,methodName:methodName,arguments:arguments.args,end:arguments.end}
+    return {"type":consParser.expressionMethodCall, objectName:objectName,methodName:methodName,arguments:arguments.args,end:arguments.end}
 
 def variableDeclaration(tokens, start):
-    print(tokens[start])
     #if tokens[start+1]["type"] != consTokens.typeWord and tokens[start+1]["type"] != consTokens.typeNumber:  
     #    print(tokens[start+1]["type"])
     #    return consParser.errorMissingWord
     variableName = tokens[start+1]["value"]
  
-    return {type : consParser.expressionDeclaration, "variableName": variableName}
+    return {"type" : consParser.expressionDeclaration, "variableName": variableName}
 
 def variableAffectation(tokens, start):
     #if tokens[start-1]["type"] != consTokens.typeWord:
@@ -44,7 +43,7 @@ def variableAffectation(tokens, start):
     #else:
      #   if tokens[start+1]["type"]==consTokens.symboleQuotationMark:
       #      variableValue= helper.searchString(tokens, start+1)
-    return {type: consParser.expressionAffectation, "variableName": tokens[start-1]["value"], "variableValue": tokens[start+1]["value"]}
+    return {"type": consParser.expressionAffectation, "variableName": tokens[start-1]["value"], "variableValue": tokens[start+1]["value"]}
 
 
 def classCreation(tokens, start):

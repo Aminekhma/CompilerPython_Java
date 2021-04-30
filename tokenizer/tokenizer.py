@@ -5,7 +5,6 @@ import re
 class Token :
 
     def tokenizer(self,c):
-        #line = re.split('}|{',l)
         h = helper.Helper()
 
         code = h.replaceSpecialsChars(c)

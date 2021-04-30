@@ -4,6 +4,7 @@ sys.path.append('../tokenizer')
 from tokenizer import constantToken as constTokens
 from . import expressionFactory as factory
 
+
 class Parser:
 
     def readTokens(self, tokens):
